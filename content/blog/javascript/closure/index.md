@@ -22,7 +22,7 @@ description: "Javascript Closure"
 
 ### 클로저란?
 
-- 접근하려고 하는 함수의 생명주기가 종료됬지만, 내부함수가 참조 하고 있어서 그 함수에 접근할 수 있는 함수이다.
+- 접근하려고 하는 함수의 생명주기가 종료됬지만, 내부함수가 자유변수를 참조 하고 있어서 그 함수에 접근할 수 있는 함수이다.
 
 ```js
 function outer() {
@@ -39,13 +39,13 @@ glovalOuter() // I am Outer scope
 
 `outer`함수가 실행종료되었으니 `a`변수 또한 접근할 수 없어야하는데 `inner`함수가 `a`변수를 참조하고 있어서 접근가능하다.
 
-여기서 `glovalOuter` 또는 `inner`함수를 **클로저**라고 부른다.
+여기서 `glovalOuter` 또는 `inner`함수를 **클로저**라고 부르고 `a`변수를 **자유변수**라 부른다.
 
 ### Lexical Scope(부가설명)
 
 변수들의 범위는 소스코드가 작성된 그 문맥에서 결정된다(Lexical Scope).
 
-아래코드는 맨 윗줄에 전역객체로 `a`를 선언하였다.
+아래코드는 맨 윗줄에 전역객체로 `a`변수를 선언하였다.
 
 ```js
 var a = "I am Global Scope"
@@ -66,7 +66,7 @@ glovalOuter()
 
 정답은 `outer` 함수의 `a`변수 즉 `'I am Outer Scope'`이 출력된다.
 
-`inner`함수 안의 a변수는 소스코드가 작성될 때 이미 Scope Chain을 통해 `outer`함수 환경을 outer lexical scope로 정해졌다. Scope Chain 규칙은 자기 자신의 lexical scope에서 먼저 찾고 그 다음 가깝게 인접한 함수에서 scope를 찾는다. 만약 자바스크립트가 동적 스코프(Dynamic scope) 방식을 따랐다면 `glovalOuter`함수가 실행될 때의 `a`변수 값인 `"I am Global Scope"`을 출력했을 것이다.
+`inner`함수 안의 a변수는 소스코드가 작성될 때 이미 Scope Chain을 통해 `outer`함수 환경을 outer lexical scope로 정해졌다. Scope Chain 규칙은 자기 자신의 lexical scope에서 먼저 찾고 그 다음 가깝게 인접한 함수에서 scope를 찾는다. 만약 자바스크립트가 동적 스코프(Dynamic scope) 방식을 따랐다면 `glovalOuter`함수가 실행될 시점의 `a`변수 값인 `"I am Global Scope"`을 출력했을 것이다.
 
 ## 클로저 사용 예시
 
