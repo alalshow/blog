@@ -26,7 +26,7 @@ description: "Javascript Closure"
 
 ```js
 function outer() {
-  var a = "I am Outer scope variable"
+  var a = "I am Outer scope"
   var inner = function() {
     console.log(a)
   }
@@ -34,7 +34,7 @@ function outer() {
 }
 
 var glovalOuter = outer()
-glovalOuter() // I am Outer scope variable
+glovalOuter() // I am Outer scope
 ```
 
 `outer`함수가 실행종료되었으니 `a`변수 또한 접근할 수 없어야하는데 `inner`함수가 `a`변수를 참조하고 있어서 접근가능하다.
@@ -48,10 +48,10 @@ glovalOuter() // I am Outer scope variable
 아래코드는 맨 윗줄에 전역객체로 `a`를 선언하였다.
 
 ```js
-var a = "I am Global Scope variable"
+var a = "I am Global Scope"
 
 function outer() {
-  var a = "I am Outer Scope variable"
+  var a = "I am Outer Scope"
   var inner = function() {
     console.log(a)
   }
@@ -64,9 +64,9 @@ glovalOuter()
 
 `glovalOuter`함수를 실행하면 어떤 `a`가 출력이 될까?
 
-정답은 `outer` 함수의 `a`변수 즉 `'I am Outer Scope variable'`이 출력된다.
+정답은 `outer` 함수의 `a`변수 즉 `'I am Outer Scope'`이 출력된다.
 
-`inner`함수 안의 a변수는 소스코드가 작성될 때 이미 Scope Chain을 통해 `outer`함수 환경을 outer lexical scope로 정해졌다. Scope Chain 규칙은 자기 자신의 lexical scope에서 먼저 찾고 그 다음 가까운 부모 함수 scope를 찾는다.
+`inner`함수 안의 a변수는 소스코드가 작성될 때 이미 Scope Chain을 통해 `outer`함수 환경을 outer lexical scope로 정해졌다. Scope Chain 규칙은 자기 자신의 lexical scope에서 먼저 찾고 그 다음 가깝게 인접한 함수에서 scope를 찾는다. 만약 자바스크립트가 동적 스코프(Dynamic scope) 방식을 따랐다면 `glovalOuter`함수가 실행될 때의 `a`변수 값인 `"I am Global Scope"`을 출력했을 것이다.
 
 ## 클로저 사용 예시
 
