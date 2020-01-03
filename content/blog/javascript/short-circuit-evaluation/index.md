@@ -79,6 +79,9 @@ console.log(elem.value) // TypeError: Cannot read property 'value' of null
 console.log(elem && elem.value) // null
 ```
 
+- `elem`이 null이네.. 이건 falsy 값이야 흠 뒤에 값은 보나마나 요기의 논리합의 평가는 너(`elem`)로 인해 결정되겠군!
+  그러므로 요기의 결과값은 `elem` 즉 null!!
+
 객체는 키(key)과 값(value)으로 구성된 프로퍼티(Property)들의 집합이다. 만약 객체가 null인 경우, 객체의 프로퍼티를 참조하면 타입 에러(TypeError)가 발생한다. 이때 단축 평가를 사용하면 에러를 발생시키지 않는다.
 
 - 함수의 인수(argument)를 초기화할 때
@@ -101,5 +104,9 @@ function getStringLength(str = "") {
 getStringLength() // 0
 getStringLength("hi") // 2
 ```
+
+- `str`이 undefined이네.. 이건 falsy 값이야 흠 뒤에 값을 확인해야 요기의 논리합을 평가할 수 있겠어 평가는 뒤에 값(`''`)으로 인해 결정되겠군!
+  그러므로 요기의 결과값은 `''` 이다
+  str에 falsy한 값이 들어온다면 뒤에 값으로 초기화 되겠네!!
 
 함수를 호출할 때 인수를 전달하지 않으면 매개변수는 undefined를 갖는다. 이때 단축 평가를 사용하여 매개변수의 기본값을 설정하면 undefined로 인해 발생할 수 있는 에러를 방지할 수 있다.
