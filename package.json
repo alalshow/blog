@@ -56,6 +56,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "gitacp": "git add . && git commit -m \"'블로그 배포'\" && git push"
+    "deploy": "git add . && git commit -m \"'블로그 배포'\" && git push"
   }
 }
