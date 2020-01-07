@@ -1,0 +1,55 @@
+---
+title: Function Hoisting
+date: "2020-01-07T11:11:02.409Z"
+description: "Javascript Function Hoisting"
+---
+
+# 함수 호이스팅
+
+## 함수 호이스팅이란
+
+호이스팅이란 var 선언문이나 function 선언문 등 모든 선언문이 해당 Scope의 선두로 옮겨진 것처럼 동작하는 특성을 말한다.
+즉, 자바스크립트는 모든 선언문(var, let, const, function, function\*, class)이 선언되기 이전에 참조 가능하다.
+
+아래의 코드를 보자.
+
+```javascript
+var res = square(5)
+
+function square(number) {
+  return number * number
+}
+```
+
+함수 선언문으로 함수 `square`가 정의되기 이전에 함수 호출이 가능하다.
+함수 선언문의 경우, 함수 선언의 위치와는 상관없이 코드 내 어느 곳에서든지 호출이 가능한데 이것을 함수 호이스팅(Function Hoisting)이라 한다.
+
+자바스크립트는 ES6의 let, const를 포함하여 모든 선언(var, let, const, function, function\*, class)을 호이스팅(Hoisting)한다.
+
+함수 선언문으로 정의된 함수는 자바스크립트 엔진이 스크립트가 로딩되는 시점에 바로 초기화하고 이를 VO(variable object)에 저장한다.
+즉, 함수 선언, 초기화, 할당이 한번에 이루어진다.
+그렇기 때문에 함수 선언의 위치와는 상관없이 소스 내 어느 곳에서든지 호출이 가능하다.
+
+다음은 함수 표현식으로 함수를 정의한 경우이다.
+
+```javascript
+var res = square(5) // TypeError: square is not a function
+
+var square = function(number) {
+  return number * number
+}
+```
+
+함수 선언문의 경우와는 달리 TypeError가 발생하였다. 함수 표현식의 경우 함수 호이스팅이 아니라 변수 호이스팅이 발생한다.
+
+변수 호이스팅은 변수 생성 및 초기화와 할당이 분리되어 진행된다. 호이스팅된 변수는 undefined로 초기화 되고 실제값의 할당은 할당문에서 이루어진다.
+
+함수 표현식은 함수 선언문과는 달리 스크립트 로딩 시점에 변수 객체(VO)에 함수를 할당하지 않고 runtime에 해석되고 실행되므로 이 두가지를 구분하는 것은 중요하다.
+
+JavaScript: The Good Parts의 저자이며 자바스크립트의 권위자인 더글러스 크락포드(Douglas Crockford)는 이와 같은 문제 때문에 함수 표현식만을 사용할 것을 권고하고 있다. 함수 호이스팅이 함수 호출 전 반드시 함수를 선언하여야 한다는 규칙을 무시하므로 코드의 구조를 엉성하게 만들 수 있다고 지적한다.
+
+또한 함수 선언문으로 함수를 정의하면 사용하기에 쉽지만 대규모 애플리케이션을 개발하는 경우 인터프리터가 너무 많은 코드를 변수 객체(VO)에 저장하므로 애플리케이션의 응답속도는 현저히 떨어질 수 있으므로 주의해야 할 필요가 있다.
+
+## 출처
+
+- [poiemaweb- 자바스크립트](https://poiemaweb.com/js-function)

@@ -1,6 +1,6 @@
 ---
 title: Short-circuit Evaluation
-date: "2020-01-30T20:43:02.118Z"
+date: "2019-12-30T20:43:02.118Z"
 description: "Javascript Short-circuit Evaluation"
 ---
 
