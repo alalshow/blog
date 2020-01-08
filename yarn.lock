@@ -9852,6 +9852,11 @@ pretty-error@^2.1.1:
     renderkid "^2.0.1"
     utila "~0.4"
 
+prism-material-themes@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/prism-material-themes/-/prism-material-themes-1.0.3.tgz#f05eefdf20fff53a4a3d50140eec66fa2d701edd"
+  integrity sha512-RIVW3kl6Y7NLmSy/ORzS6Ir+iMHpm3yiUfH5WJCdHR3wjid46LHkDYtK6g1RTkGqyb2MAeAduGYU8IiXlhVQLA==
+
 prism-solarized-dark@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/prism-solarized-dark/-/prism-solarized-dark-1.0.1.tgz#75b7847549a19212df8417b5372148521ca4d03f"

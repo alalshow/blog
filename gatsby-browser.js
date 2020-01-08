@@ -6,6 +6,7 @@ import "typeface-merriweather"
 //import "prismjs/themes/prism-solarizedlight.css"
 
 //Dark Mode
-import "prism-solarized-dark/prism-solarizeddark.css"
-
 //import "prism-solarized-dark/prism-solarizeddark.css"
+
+//Material
+import "prism-material-themes/themes/material-darker.css"
