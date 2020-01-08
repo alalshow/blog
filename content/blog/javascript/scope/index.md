@@ -17,7 +17,7 @@ description: "Javascript Scope"
 
 다음의 코드를 보자. 서울에서 김서방을 불렀다면 어느 김서방이 대답을 할까?
 
-```javascript
+```js
 var 김서방 = "전국 김서방"
 
 function 전국() {
@@ -95,7 +95,7 @@ int main(void) {
 
 단, ECMAScript 6에서 도입된 let keyword를 사용하면 **블록 레벨 스코프**를 사용할 수 있다.
 
-```javascript
+```js
 var x = 0
 {
   var x = 1
@@ -115,7 +115,7 @@ console.log(y) // 0
 
 전역에 변수를 선언하면 이 변수는 어디서든지 참조할 수 있는 전역 스코프를 갖는 전역 변수가 된다. var 키워드로 선언한 전역 변수는 전역객체 `window`의 프로퍼티이다.
 
-```javascript
+```js
 var global = "global"
 
 function foo() {
@@ -161,7 +161,7 @@ int main () {
 
 #5. 비 블록 레벨 스코프(Non block-level scope)
 
-```javascript
+```js
 if (true) {
   var x = 5
 }
@@ -172,7 +172,7 @@ console.log(x)
 
 #6. 함수 레벨 스코프(Function-level scope)
 
-```javascript
+```js
 var a = 10 // 전역변수
 
 ;(function() {
@@ -185,7 +185,7 @@ console.log(b) // "b" is not defined
 
 자바스크립트는 함수 레벨 스코프를 사용한다. 즉, 함수 내에서 선언된 매개변수와 변수는 함수 외부에서는 유효하지 않다. 따라서 변수 b는 지역 변수이다.
 
-```javascript
+```js
 var x = "global"
 
 function foo() {
@@ -201,7 +201,7 @@ console.log(x) // global
 
 다음은 함수 내에 존재하는 함수인 내부 함수의 경우를 살펴보자.
 
-```javascript
+```js
 var x = "global"
 
 function foo() {
@@ -223,7 +223,7 @@ console.log(x) // ?
 
 함수 bar에서 참조하는 변수 x는 함수 foo에서 선언된 지역변수이다. 이는 실행컨텍스트의 스코프 체인에 의해 참조 순위에서 전역변수 x가 뒤로 밀렸기 때문이다.
 
-```javascript
+```js
 var x = 10
 
 function foo() {
@@ -236,7 +236,7 @@ console.log(x) // ?
 
 함수(지역) 영역에서 전역변수를 참조할 수 있으므로 전역변수의 값도 변경할 수 있다. 내부 함수의 경우, 전역변수는 물론 상위 함수에서 선언한 변수에 접근/변경이 가능하다.
 
-```javascript
+```js
 var x = 10
 
 function foo() {
@@ -257,7 +257,7 @@ console.log(x) // ?
 
 중첩 스코프는 가장 인접한 지역을 우선하여 참조한다.
 
-```javascript
+```js
 var foo = function() {
   var a = 3,
     b = 5
@@ -285,7 +285,7 @@ var foo = function() {
 
 아래 예제의 실행 결과를 예측해보자.
 
-```javascript
+```js
 var x = 1
 
 function foo() {
@@ -311,7 +311,7 @@ bar() // ?
 
 아래 예제의 실행 결과를 예측해보자.
 
-```javascript
+```js
 function foo() {
   x = 10
 }
@@ -332,7 +332,7 @@ console.log(x) // ?
 
 아래와 같이 2개의 분리된 자바스크립트 파일이 있다고 가정하자.
 
-```javascript
+```js
 // x.js
 function foo() {
   // var i = 0;
@@ -369,7 +369,7 @@ x.js의 변수 i는 var 키워드를 사용하지 않았으므로 암묵적으�
 
 전역변수 사용을 최소화하는 방법 중 하나는 애플리케이션에서 전역변수 사용을 위해 다음과 같이 전역변수 객체 하나를 만들어 사용하는 것이다. (더글라스 크락포드의 제안)
 
-```javascript
+```js
 var MYAPP = {}
 
 MYAPP.student = {
@@ -384,7 +384,7 @@ console.log(MYAPP.student.name)
 
 전역변수 사용을 억제하기 위해, 즉시 실행 함수(IIFE, Immediately-Invoked Function Expression)를 사용할 수 있다. 이 방법을 사용하면 전역변수를 만들지 않으므로 라이브러리 등에 자주 사용된다. 즉시 실행 함수는 즉시 실행되고 그 후 전역에서 바로 사라진다.
 
-```javascript
+```js
 ;(function() {
   var MYAPP = {}
 

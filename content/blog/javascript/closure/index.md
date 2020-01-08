@@ -37,15 +37,15 @@ var glovalOuter = outer()
 glovalOuter() // I am Outer scope
 ```
 
-`outer`함수가 실행종료되었으니 `a`변수 또한 접근할 수 없어야하는데 `inner`함수가 `a`변수를 참조하고 있어서 접근가능하다.
+**outer**함수가 실행종료되었으니 **a**변수 또한 접근할 수 없어야하는데 **inner**함수가 **a**변수를 참조하고 있어서 접근가능하다.
 
-여기서 `glovalOuter` 또는 `inner`함수를 **클로저**라고 부르고 `a`변수를 **자유변수**라 부른다.
+여기서 **glovalOuter** 또는 **inner**함수를 **클로저**라고 부르고 **a**변수를 **자유변수**라 부른다.
 
 ### Lexical Scope(부가설명)
 
 변수들의 범위는 소스코드가 작성된 그 문맥에서 결정된다(Lexical Scope).
 
-아래코드는 맨 윗줄에 전역객체로 `a`변수를 선언하였다.
+아래코드는 맨 윗줄에 전역객체로 **a**변수를 선언하였다.
 
 ```js
 var a = "I am Global Scope"
@@ -62,11 +62,11 @@ var glovalOuter = outer()
 glovalOuter()
 ```
 
-`glovalOuter`함수를 실행하면 어떤 `a`가 출력이 될까?
+**glovalOuter**함수를 실행하면 어떤 **a**가 출력이 될까?
 
-정답은 `outer` 함수의 `a`변수 즉 `'I am Outer Scope'`이 출력된다.
+정답은 **outer** 함수의 **a**변수 즉 **'I am Outer Scope'**이 출력된다.
 
-`inner`함수 안의 a변수는 소스코드가 작성될 때 이미 Scope Chain을 통해 `outer`함수 환경을 outer lexical scope로 정해졌다. Scope Chain 규칙은 자기 자신의 lexical scope에서 먼저 찾고 그 다음 가깝게 인접한 함수에서 scope를 찾는다. 만약 자바스크립트가 동적 스코프(Dynamic scope) 방식을 따랐다면 `glovalOuter`함수가 실행될 시점의 `a`변수 값인 `"I am Global Scope"`을 출력했을 것이다.
+**inner**함수 안의 a변수는 소스코드가 작성될 때 이미 Scope Chain을 통해 **outer**함수 환경을 outer lexical scope로 정해졌다. Scope Chain 규칙은 자기 자신의 lexical scope에서 먼저 찾고 그 다음 가깝게 인접한 함수에서 scope를 찾는다. 만약 자바스크립트가 동적 스코프(Dynamic scope) 방식을 따랐다면 **glovalOuter**함수가 실행될 시점의 **a**변수 값인 **"I am Global Scope"**을 출력했을 것이다.
 
 ## 클로저 사용 예시
 
@@ -104,7 +104,7 @@ alert(counter1.value()) /* 1 */
 alert(counter2.value()) /* 0 */
 ```
 
-`counter`를 실행하면 하나의 익명함수가 실행된다. 이 익명함수 안에는 두 개의 private 아이템이 포함된다. 하나는 `privateCounter`변수이고 하나는 `changeBy`함수이다. 이 private 요소들은 선언된 당시에 참조하는 세 개의 클로저 함수들(`increment`, `decrement`, `value`)에 의해서만 접근가능하다.
+**counter**를 실행하면 하나의 익명함수가 실행된다. 이 익명함수 안에는 두 개의 private 아이템이 포함된다. 하나는 **privateCounter**변수이고 하나는 **changeBy**함수이다. 이 private 요소들은 선언된 당시에 참조하는 세 개의 클로저 함수들(**increment**, **decrement**, **value**)에 의해서만 접근가능하다.
 
 ## 참조
 

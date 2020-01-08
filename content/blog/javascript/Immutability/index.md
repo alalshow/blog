@@ -37,7 +37,7 @@ Javascript의 원시 타입(primitive data type)은 변경 불가능한 값(immu
 
 아래의 코드를 살펴보자.
 
-```javascript
+```js
 var str = "Hello"
 str = "world"
 ```
@@ -46,7 +46,7 @@ str = "world"
 
 ## 1.1 mutable value
 
-```javascript
+```js
 var user = {
   name: "Lee",
   address: {
@@ -55,7 +55,7 @@ var user = {
 }
 ```
 
-```javascript
+```js
 var myName = user.name // 변수 myName은 string 타입이다.
 
 user.name = "Kim"
@@ -67,7 +67,7 @@ console.log(myName) // Kim
 
 user.name의 값을 변경했지만 변수 myName의 값은 변경되지 않았다. 이는 변수 myName에 user.name을 할당했을 때 user.name의 참조를 할당하는 것이 아니라 immutable한 값 ‘Lee’가 메모리에 새로 생성되고 myName은 이것을 참조하기 때문이다. 따라서 user.name의 값이 변경된다 하더라도 변수 myName이 참조하고 있는 ‘Lee’는 변함이 없다.
 
-```javascript
+```js
 var user1 = {
   name: "Lee",
   address: {
@@ -101,7 +101,7 @@ console.log(user2.name) // Kim
 
 Object.assign은 타킷 객체로 소스 객체의 프로퍼티를 복사한다. 이때 소스 객체의 프로퍼티와 동일한 프로퍼티를 가진 타켓 객체의 프로퍼티들은 소스 객체의 프로퍼티로 덮어쓰기된다. 리턴값으로 타킷 객체를 반환한다. ES6에서 추가된 메소드이며 Internet Explorer는 지원하지 않는다.
 
-```javascript
+```js
 // Syntax
 Object.assign(target, ...sources)
 // Copy
@@ -133,7 +133,7 @@ console.log(o4) // { a: 1 }
 
 Object.assign을 사용하여 기존 객체를 변경하지 않고 객체를 복사하여 사용할 수 있다. Object.assign은 완전한 deep copy를 지원하지 않는다. 객체 내부의 객체(Nested Object)는 Shallow copy된다.
 
-```javascript
+```js
 const user1 = {
   name: 'Lee',
   address: {
@@ -165,7 +165,7 @@ user1 객체를 빈객체에 복사하여 새로운 객체 user2를 생성하였
 
 Object.freeze()를 사용하여 불변(immutable) 객체로 만들수 있다.
 
-```javascript
+```js
 const user1 = {
   name: "Lee",
   address: {
@@ -176,7 +176,7 @@ const user1 = {
 
 // Object.assign은 완전한 deep copy를 지원하지 않는다.
 
-```javascript
+```js
 const user2 = Object.assign({}, user1, {name: 'Kim'});
 
 console.log(user1.name); // Lee
@@ -206,7 +206,7 @@ console.log(user); // { name: 'Lee', address: { city: 'Busan' } }
 
 내부 객체까지 변경 불가능하게 만들려면 Deep freeze를 하여야 한다.
 
-```javascript
+```js
 function deepFreeze(obj) {
   const props = Object.getOwnPropertyNames(obj)
 
@@ -247,7 +247,7 @@ npm을 사용하여 Immutable.js를 설치한다.
 \$ npm install immutable
 Immutable.js의 Map 모듈을 임포트하여 사용한다.
 
-```javascript
+```js
 const { Map } = require("immutable")
 const map1 = Map({ a: 1, b: 2, c: 3 })
 const map2 = map1.set("b", 50)
