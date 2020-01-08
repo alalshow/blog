@@ -523,3 +523,7 @@ function foo() {
 var p = new Person("Lee")
 p.doSomething(foo) // 'Lee'
 ```
+
+## 출처
+
+- [poiemaweb-scope](https://poiemaweb.com/js-this)

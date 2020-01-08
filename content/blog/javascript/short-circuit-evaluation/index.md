@@ -110,3 +110,7 @@ getStringLength("hi") // 2
   str에 falsy한 값이 들어온다면 뒤에 값으로 초기화 되겠네!!
 
 함수를 호출할 때 인수를 전달하지 않으면 매개변수는 undefined를 갖는다. 이때 단축 평가를 사용하여 매개변수의 기본값을 설정하면 undefined로 인해 발생할 수 있는 에러를 방지할 수 있다.
+
+## 출처
+
+- [poiemaweb-scope](https://poiemaweb.com)
