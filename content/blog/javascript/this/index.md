@@ -375,7 +375,8 @@ function A(arg) {
 
 /_
 this가 호출된 함수(arguments.callee, 본 예제의 경우 A)의 인스턴스가 아니면 new 연산자를 사용하지 않은 것이므로 이 경우 new와 함께 생성자 함수를 호출하여 인스턴스를 반환한다.
-arguments.callee는 호출된 함수의 이름을 나타낸다. 이 예제의 경우 A로 표기하여도 문제없이 동작하지만 특정함수의 이름과 의존성을 없애기 위해서 arguments.callee를 사용하는 것이 좋다.
+arguments.callee는 호출된 함수의 이름을 나타낸다. 
+이 예제의 경우 A로 표기하여도 문제없이 동작하지만 특정함수의 이름과 의존성을 없애기 위해서 arguments.callee를 사용하는 것이 좋다.
 _/
 if (!(this instanceof arguments.callee)) {
 return new arguments.callee(arg);
@@ -396,9 +397,22 @@ callee는 arguments 객체의 프로퍼티로서 함수 바디 내에서 현재 
 
 # 4. apply/call/bind 호출
 
-this에 바인딩될 객체는 함수 호출 패턴에 의해 결정된다. 이는 자바스크립트 엔진이 수행하는 것이다. 이러한 자바스크립트 엔진의 암묵적 this 바인딩 이외에 this를 특정 객체에 명시적으로 바인딩하는 방법도 제공된다. 이것을 가능하게 하는 것이 Function.prototype.apply, Function.prototype.call 메소드이다.
+this에 바인딩될 객체는 함수 호출 패턴에 의해 결정된다. 이는 자바스크립트 엔진이 수행하는 것이다.  
+이러한 자바스크립트 엔진의 암묵적 this 바인딩 이외에 this를 특정 객체에 명시적으로 바인딩하는 방법도 제공된다.  
+이것을 가능하게 하는 것이 Function.prototype.apply, Function.prototype.call 메소드이다.  
 
-이 메소드들은 모든 함수 객체의 프로토타입 객체인 Function.prototype 객체의 메소드이다.
+### 짧은 요약
+- apply/call/bind 모두 함수를 호출하는 방법이다.
+- 함수를 보통 호출할 때는 **호출자.함수명();** 이런식으로 호출한다.  
+  - 이것은 암묵적으로 브라우저일 경우 **window.함수명();** node일 경우 **global.함수명();** 이 생략된 형태이고 여기서 window 또는 global이 `호출자`에 해당한다.
+- 이 세가지 형제는 아래와 같이 호출한다.
+  - 함수명.apply(호출자, [파라미터1, 파라미터2])   
+  - 함수명.call(호출자, 파라미터1, 파라미터2)
+  - 함수명.bind(호출자)
+
+**요약하자면, 나 이 함수 호출하고 싶은데 호출자는 이걸로 해주고 파라미터는 이걸로 해줘라고 정하는 것이다.**
+
+이 메소드들은 모든 함수 객체의 프로토타입 객체인 Function.prototype 객체의 메소드이다.  
 
 ```js
 func.apply(thisArg, [argsArray])
@@ -444,9 +458,11 @@ function convertArgsToArray() {
 convertArgsToArray(1, 2, 3)
 ```
 
-Array.prototype.slice.apply(arguments)는 “Array.prototype.slice() 메소드를 호출하라. 단 this는 arguments 객체로 바인딩하라”는 의미가 된다. 결국 Array.prototype.slice() 메소드를 arguments 객체 자신의 메소드인 것처럼 arguments.slice()와 같은 형태로 호출하라는 것이다.
+Array.prototype.slice.apply(arguments)는 “Array.prototype.slice() 메소드를 호출하라. 
+단 this는 arguments 객체로 바인딩하라”는 의미가 된다. 
+결국 Array.prototype.slice() 메소드를 arguments 객체 자신의 메소드인 것처럼 arguments.slice()와 같은 형태로 호출하라는 것이다.
 
-apply
+### apply
 
 arguments 객체의 Array.prototype.slice() 호출
 
@@ -480,7 +496,13 @@ var p = new Person("Lee")
 p.doSomething(foo) // undefined
 ```
 
-1의 시점에서 this는 Person 객체이다. 그러나 2의 시점에서 this는 전역 객체 window를 가리킨다. 콜백함수를 호출하는 외부 함수 내부의 this와 콜백함수 내부의 this가 상이하기 때문에 문맥상 문제가 발생한다. 따라서 콜백함수 내부의 this를 콜백함수를 호출하는 함수 내부의 this와 일치시켜 주어야 하는 번거로움이 발생한다.
+1의 시점에서 this는 Person 객체이다. 
+
+그러나 2의 시점에서 this는 전역 객체 window를 가리킨다. 
+
+콜백함수를 호출하는 외부 함수 내부의 this와 콜백함수 내부의 this가 상이하기 때문에 문맥상 문제가 발생한다. 
+
+따라서 콜백함수 내부의 this를 콜백함수를 호출하는 함수 내부의 this와 일치시켜 주어야 하는 번거로움이 발생한다.
 
 ```js
 function Person(name) {
