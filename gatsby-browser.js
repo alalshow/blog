@@ -1,4 +1,11 @@
 // custom typefaces
 import "typeface-montserrat"
 import "typeface-merriweather"
-import "prismjs/themes/prism-solarizedlight.css"
+
+//Ligtt Mode
+//import "prismjs/themes/prism-solarizedlight.css"
+
+//Dark Mode
+import "prism-solarized-dark/prism-solarizeddark.css"
+
+//import "prism-solarized-dark/prism-solarizeddark.css"
