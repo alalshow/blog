@@ -1,7 +1,7 @@
 ---
 title: Reason for Javascript Study
 date: "2019-12-31T10:13:02.512Z"
-description: "Javascript Study"
+description: "Reason for Javascript Study"
 ---
 
 자바스크립트 스터디를 다녀왔다.
