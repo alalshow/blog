@@ -1,0 +1,7 @@
+.content__main--docs {
+    display: flex;
+}
+
+.sidebar {
+    min-width: 30%;
+}
