@@ -328,6 +328,6 @@ button.addEventListener("click", function() {
 })
 ```
 
-## 출처
+# 출처
 
 - [poiemaweb](https://poiemaweb.com/es6-arrow-function)

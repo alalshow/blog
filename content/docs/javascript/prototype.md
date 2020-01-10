@@ -4,6 +4,14 @@ date: "2020-01-07T14:47:02.118Z"
 description: "Javascript prototype"
 ---
 
+## Table of Contents
+
+```toc
+exclude: Table of Contents
+from-heading: 1
+to-heading: 6
+```
+
 # prototype
 
 끝판왕 어려운 단어  
@@ -14,7 +22,7 @@ prototype을 사전에서 찾아보면 '원래의 형태 또는 전형적인 예
 부모의 **[[Prototype]]**에 접근하기 위해서는 \_\_proto\_\_ 라는 access proprty를 사용한다.  
 **'객체.\_\_proto\_\_'** 이렇게 호출하면 객체(나)의 부모의 정보를 알려줘! 라고 요청하는 것이다.
 
-# 1. 프로토타입 객체
+## 1. 프로토타입 객체
 
 Java, C++과 같은 클래스 기반 객체지향 프로그래밍 언어와 달리 자바스크립트는 프로토타입 기반 객체지향 프로그래밍 언어이다.  
 따라서 자바스크립트의 동작 원리를 이해하기 위해서는 프로토타입의 개념을 잘 이해하고 있어야 한다.
@@ -64,7 +72,7 @@ console.log(student.__proto__ === Object.prototype) // true
 객체를 생성할 때 프로토타입은 결정된다. 결정된 프로토타입 객체는 다른 임의의 객체로 변경할 수 있다.  
 이것은 부모 객체인 프로토타입을 동적으로 변경할 수 있다는 것을 의미한다. 이러한 특징을 활용하여 객체의 상속을 구현할 수 있다.
 
-# 2. [[Prototype]] vs prototype 프로퍼티
+## 2. [[Prototype]] vs prototype 프로퍼티
 
 모든 객체는 자신의 프로토타입 객체를 가리키는 **[[Prototype]]** 인터널 슬롯(internal slot) 을 갖으며 상속을 위해 사용된다.
 
@@ -113,7 +121,7 @@ console.log(Person.prototype === foo.__proto__)
 
 **.prototype** 나의 모습을 호출!
 
-# 3. constructor 프로퍼티
+## 3. constructor 프로퍼티
 
 프로토타입 객체는 constructor 프로퍼티를 갖는다. 이 constructor 프로퍼티는 객체의 입장에서 자신을 생성한 객체를 가리킨다.
 
@@ -143,7 +151,7 @@ console.log(foo.constructor === Person)
 console.log(Person.constructor === Function)
 ```
 
-# 4. Prototype chain
+## 4. Prototype chain
 
 자바스크립트는 특정 객체의 프로퍼티나 메소드에 접근하려고 할 때 해당 객체에 접근하려는 프로퍼티 또는 메소드가 없다면 [[Prototype]]이 가리키는 링크를 따라 자신의 부모 역할을 하는 프로토타입 객체의 프로퍼티나 메소드를 차례대로 검색한다. 이것을 프로토타입 체인이라 한다.
 
@@ -169,7 +177,7 @@ console.log(student.__proto__ === Object.prototype) // true
 console.log(Object.prototype.hasOwnProperty("hasOwnProperty")) // true
 ```
 
-# 4.1 객체 리터럴 방식으로 생성된 객체의 프로토타입 체인
+## 4.1 객체 리터럴 방식으로 생성된 객체의 프로토타입 체인
 
 객체 생성 방법은 3가지가 있다.
 
@@ -206,7 +214,7 @@ Object literal Prototype chaining
 
 결론적으로 객체 리터럴을 사용하여 객체를 생성한 경우, 그 객체의 프로토타입 객체는 Object.prototype이다.
 
-# 4.2 생성자 함수로 생성된 객체의 프로토타입 체인
+## 4.2 생성자 함수로 생성된 객체의 프로토타입 체인
 
 생성자 함수로 객체를 생성하기 위해서는 우선 생성자 함수를 정의하여야 한다.
 
@@ -274,7 +282,7 @@ foo 객체의 프로토타입 객체 Person.prototype 객체와 Person() 생성�
 이는 객체 리터럴 방식이나 생성자 함수 방식이나 결국은 모든 객체의 부모 객체인 Object.prototype 객체에서 프로토타입 체인이 끝나기 때문이다.  
 이때 Object.prototype 객체를 프로토타입 체인의 종점(End of prototype chain)이라 한다.
 
-# 5. 프로토타입 객체의 확장
+## 5. 프로토타입 객체의 확장
 
 프로토타입 객체도 객체이므로 일반 객체와 같이 프로퍼티를 추가/삭제할 수 있다.  
 그리고 이렇게 추가/삭제된 프로퍼티는 즉시 프로토타입 체인에 반영된다.
@@ -301,7 +309,7 @@ Person.prototype 객체는 일반 객체와 같이 프로퍼티를 추가/삭제
 
 extension of prototype
 
-# 6. 원시 타입(Primitive data type)의 확장
+## 6. 원시 타입(Primitive data type)의 확장
 
 자바스크립트에서 원시 타입(숫자, 문자열, boolean, null, undefined)을 제외한 모든것은 객체이다.
 
@@ -384,7 +392,7 @@ console.log(Function.prototype.**proto** === Object.prototype); // ⑤ true
 
 String constructor function prototype chaining
 
-# 7. 프로토타입 객체의 변경
+## 7. 프로토타입 객체의 변경
 
 객체를 생성할 때 프로토타입은 결정된다. 결정된 프로토타입 객체는 다른 임의의 객체로 변경할 수 있다.
 
@@ -423,7 +431,7 @@ changing prototype
 ② 프로토타입 객체 변경 후, Person() 생성자 함수의 Prototype 프로퍼티가 가리키는 프로토타입 객체를 일반 객체로 변경하면서 Person.prototype.constructor 프로퍼티도 삭제되었다.
 따라서 프로토타입 체인에 의해 bar.constructor의 값은 프로토타입 체이닝에 의해 Object.prototype.constructor 즉 Object() 생성자 함수가 된다.
 
-# 8. 프로토타입 체인 동작 조건
+## 8. 프로토타입 체인 동작 조건
 
 - 객체의 프로퍼티를 참조하는 경우, 해당 객체에 프로퍼티가 없는 경우, 프로토타입 체인이 동작한다.
 
@@ -456,6 +464,6 @@ condition of prototype chaining
 
 foo 객체의 gender 프로퍼티에 값을 할당하면 프로토타입 체인이 발생하여 Person.prototype 객체의 gender 프로퍼티에 값을 할당하는 것이 아니라 foo 객체에 프로퍼티를 동적으로 추가한다.
 
-## 출처
+# 출처
 
 - [poiemaweb-scope](https://poiemaweb.com/js-prototype)
