@@ -6,6 +6,15 @@ description: "Javascript Function Hoisting"
 
 # 함수 호이스팅
 
+## Table of Contents
+
+```toc
+exclude: Table of
+Contents
+from-heading: 1
+to-heading: 6
+```
+
 ## 함수 호이스팅이란
 
 호이스팅이란 var 선언문이나 function 선언문 등 모든 선언문이 해당 Scope의 선두로 옮겨진 것처럼 동작하는 특성을 말한다.
@@ -58,6 +67,6 @@ JavaScript: The Good Parts의 저자이며 자바스크립트의 권위자인 �
 
 너무 많은 코드를 변수 객체(VO)에 저장하므로 애플리케이션의 응답속도는 현저히 떨어질 수 있으므로 주의해야 할 필요가 있다.
 
-## 출처
+# 출처
 
 - [poiemaweb- 자바스크립트](https://poiemaweb.com/js-function)
