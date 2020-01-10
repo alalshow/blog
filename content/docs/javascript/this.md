@@ -4,6 +4,16 @@ date: "2020-01-08T17:57:02.118Z"
 description: "Javascript this"
 ---
 
+## Table of Contents
+
+```toc
+exclude: Table of Contents
+from-heading: 1
+to-heading: 6
+```
+
+# This
+
 자바스크립트의 함수는 호출될 때, 매개변수로 전달되는 인자값 이외에, arguments 객체와 this를 암묵적으로 전달 받는다.
 
 ```js
@@ -35,7 +45,7 @@ this.name = name;
 
 하지만 자바스크립트의 경우 Java와 같이 this에 바인딩되는 객체는 한가지가 아니라 해당 함수 호출 방식에 따라 this에 바인딩되는 객체가 달라진다.
 
-# 함수 호출 방식과 this 바인딩
+## 함수 호출 방식과 this 바인딩
 
 자바스크립트의 경우 함수 호출 방식에 의해 this에 바인딩할 어떤 객체가 동적으로 결정된다. 다시 말해, 함수를 선언할 때 this에 바인딩할 객체가 정적으로 결정되는 것이 아니고, 함수를 호출할 때 함수가 어떻게 호출되었는지에 따라 this에 바인딩할 객체가 동적으로 결정된다.
 
@@ -71,7 +81,7 @@ foo.apply(bar) // bar
 foo.bind(bar)() // bar
 ```
 
-# 1. 함수 호출
+## 1. 함수 호출
 
 전역객체(Global Object)는 모든 객체의 유일한 최상위 객체를 의미하며 일반적으로 Browser-side에서는 window, Server-side(Node.js)에서는 global 객체를 의미한다.
 
@@ -205,7 +215,7 @@ var obj = {
 obj.foo()
 ```
 
-# 2. 메소드 호출
+## 2. 메소드 호출
 
 함수가 객체의 프로퍼티 값이면 메소드로서 호출된다. 이때 메소드 내부의 this는 해당 메소드를 소유한 객체, 즉 해당 메소드를 호출한 객체에 바인딩된다.
 
@@ -248,7 +258,7 @@ console.log(Person.prototype.getName());
 Prototype Method Invocation Pattern
 ```
 
-# 3. 생성자 함수 호출
+## 3. 생성자 함수 호출
 
 자바스크립트의 생성자 함수는 말 그대로 객체를 생성하는 역할을 한다.
 하지만 자바와 같은 객체지향 언어의 생성자 함수와는 다르게 그 형식이 정해져 있는 것이 아니라 기존 함수에 new 연산자를 붙여서 호출하면 해당 함수는 생성자 함수로 동작한다.
@@ -375,7 +385,7 @@ function A(arg) {
 
 /_
 this가 호출된 함수(arguments.callee, 본 예제의 경우 A)의 인스턴스가 아니면 new 연산자를 사용하지 않은 것이므로 이 경우 new와 함께 생성자 함수를 호출하여 인스턴스를 반환한다.
-arguments.callee는 호출된 함수의 이름을 나타낸다. 
+arguments.callee는 호출된 함수의 이름을 나타낸다.
 이 예제의 경우 A로 표기하여도 문제없이 동작하지만 특정함수의 이름과 의존성을 없애기 위해서 arguments.callee를 사용하는 것이 좋다.
 _/
 if (!(this instanceof arguments.callee)) {
@@ -395,24 +405,25 @@ console.log(b.value);
 
 callee는 arguments 객체의 프로퍼티로서 함수 바디 내에서 현재 실행 중인 함수를 참조할 때 사용한다. 다시 말해, 함수 바디 내에서 현재 실행 중인 함수의 이름을 반환한다.
 
-# 4. apply/call/bind 호출
+## 4. apply/call/bind 호출
 
 this에 바인딩될 객체는 함수 호출 패턴에 의해 결정된다. 이는 자바스크립트 엔진이 수행하는 것이다.  
 이러한 자바스크립트 엔진의 암묵적 this 바인딩 이외에 this를 특정 객체에 명시적으로 바인딩하는 방법도 제공된다.  
-이것을 가능하게 하는 것이 Function.prototype.apply, Function.prototype.call 메소드이다.  
+이것을 가능하게 하는 것이 Function.prototype.apply, Function.prototype.call 메소드이다.
 
 ### 짧은 요약
+
 - apply/call/bind 모두 함수를 호출하는 방법이다.
-- 함수를 보통 호출할 때는 **호출자.함수명();** 이런식으로 호출한다.  
+- 함수를 보통 호출할 때는 **호출자.함수명();** 이런식으로 호출한다.
   - 이것은 암묵적으로 브라우저일 경우 **window.함수명();** node일 경우 **global.함수명();** 이 생략된 형태이고 여기서 window 또는 global이 `호출자`에 해당한다.
 - 이 세가지 형제는 아래와 같이 호출한다.
-  - 함수명.apply(호출자, [파라미터1, 파라미터2])   
+  - 함수명.apply(호출자, [파라미터1, 파라미터2])
   - 함수명.call(호출자, 파라미터1, 파라미터2)
   - 함수명.bind(호출자)
 
 **요약하자면, 나 이 함수 호출하고 싶은데 호출자는 이걸로 해주고 파라미터는 이걸로 해줘라고 정하는 것이다.**
 
-이 메소드들은 모든 함수 객체의 프로토타입 객체인 Function.prototype 객체의 메소드이다.  
+이 메소드들은 모든 함수 객체의 프로토타입 객체인 Function.prototype 객체의 메소드이다.
 
 ```js
 func.apply(thisArg, [argsArray])
@@ -458,8 +469,8 @@ function convertArgsToArray() {
 convertArgsToArray(1, 2, 3)
 ```
 
-Array.prototype.slice.apply(arguments)는 “Array.prototype.slice() 메소드를 호출하라. 
-단 this는 arguments 객체로 바인딩하라”는 의미가 된다. 
+Array.prototype.slice.apply(arguments)는 “Array.prototype.slice() 메소드를 호출하라.
+단 this는 arguments 객체로 바인딩하라”는 의미가 된다.
 결국 Array.prototype.slice() 메소드를 arguments 객체 자신의 메소드인 것처럼 arguments.slice()와 같은 형태로 호출하라는 것이다.
 
 ### apply
@@ -496,11 +507,11 @@ var p = new Person("Lee")
 p.doSomething(foo) // undefined
 ```
 
-1의 시점에서 this는 Person 객체이다. 
+1의 시점에서 this는 Person 객체이다.
 
-그러나 2의 시점에서 this는 전역 객체 window를 가리킨다. 
+그러나 2의 시점에서 this는 전역 객체 window를 가리킨다.
 
-콜백함수를 호출하는 외부 함수 내부의 this와 콜백함수 내부의 this가 상이하기 때문에 문맥상 문제가 발생한다. 
+콜백함수를 호출하는 외부 함수 내부의 this와 콜백함수 내부의 this가 상이하기 때문에 문맥상 문제가 발생한다.
 
 따라서 콜백함수 내부의 this를 콜백함수를 호출하는 함수 내부의 this와 일치시켜 주어야 하는 번거로움이 발생한다.
 
@@ -546,6 +557,6 @@ var p = new Person("Lee")
 p.doSomething(foo) // 'Lee'
 ```
 
-## 출처
+# 출처
 
 - [poiemaweb-scope](https://poiemaweb.com/js-this)

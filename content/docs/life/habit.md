@@ -6,14 +6,6 @@ description: "Daliy Habit"
 
 # 하루의 습관
 
-## Table of Contents
-
-```toc
-exclude: Table of Contents
-from-heading: 2
-to-heading: 6
-```
-
 ## 1. 독서
 
 - 매일 버스에서 30분 독서 - 50 page
