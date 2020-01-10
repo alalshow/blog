@@ -1,6 +1,18 @@
+---
+title: Daliy Habit
+date: "2020-01-10T10:25:02.512Z"
+description: "Daliy Habit"
+---
+
 # 하루의 습관
 
-1. [TOC]
+## Table of Contents
+
+```toc
+exclude: Table of Contents
+from-heading: 2
+to-heading: 6
+```
 
 ## 1. 독서
 
