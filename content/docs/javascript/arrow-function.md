@@ -54,6 +54,7 @@ const pow = x => x * x
 console.log(pow(10)) // 100
 ```
 
+<br>
 또는 콜백 함수로 사용할 수 있다. 이 경우 일반적인 함수 표현식보다 표현이 간결하다.
 
 ```js
@@ -112,6 +113,8 @@ console.log(pre.prefixArray(["Lee", "Kim"]))
 
 위 설명이 잘 이해되지 않는다면 this를 참조하기 바란다.
 
+<br>
+
 콜백 함수 내부의 this가 메소드를 호출한 객체(생성자 함수의 인스턴스)를 가리키게 하려면 아래의 3가지 방법이 있다.
 
 ```js
@@ -144,6 +147,7 @@ var pre = new Prefixer("Hi")
 console.log(pre.prefixArray(["Lee", "Kim"]))
 ```
 
+<br>
 ES5에 추가된 Function.prototype.bind()로 this를 바인딩한다.
 
 ```js
@@ -193,6 +197,7 @@ const pre = new Prefixer("Hi")
 console.log(pre.prefixArray(["Lee", "Kim"]))
 ```
 
+<br>
 화살표 함수는 call, applay, bind 메소드를 사용하여 this를 변경할 수 없다.
 
 ```js
@@ -234,6 +239,7 @@ person.sayHi() // Hi undefined
 
 따라서 화살표 함수로 메소드를 정의하는 것은 바람직하지 않다.
 
+<br>
 이와 같은 경우는 메소드를 위한 단축 표기법인 ES6의 축약 메소드 표현을 사용하는 것이 좋다.
 
 ```js
@@ -267,7 +273,7 @@ person.sayHi() // Hi undefined
 ```
 
 화살표 함수로 객체의 메소드를 정의하였을 때와 같은 문제가 발생한다.
-
+<br>
 따라서 prototype에 메소드를 할당하는 경우, 일반 함수를 할당한다.
 
 ```js
@@ -314,6 +320,7 @@ button.addEventListener("click", () => {
 })
 ```
 
+<br>
 따라서 addEventListener 함수의 콜백 함수 내에서 this를 사용하는 경우, function 키워드로 정의한 일반 함수를 사용하여야 한다.
 
 일반 함수로 정의된 addEventListener 함수의 콜백 함수 내부의 this는 이벤트 리스너에 바인딩된 요소(currentTarget)를 가리킨다.
