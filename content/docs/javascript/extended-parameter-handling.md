@@ -403,6 +403,9 @@ ES5에서 기존 배열에 다른 배열의 개별 요소를 삽입하려면 아
 
 start index로 부터 deleteCount 개수 만큼 요소를 제거하고 그 자리에 아이템들을 삽입한다.
 
+[apply](https://www.blog.alalshow.com/docs/javascript/this#4-applycallbind-%ED%98%B8%EC%B6%9C)의 경우
+두번째 인자에는 배열을 넘기고 이 배열안의 요소를 호출하는 함수의 인자로 하나씩 넘긴다.
+
 ```js
 // ES5
 var arr1 = [1, 2, 3, 6]
@@ -471,7 +474,7 @@ console.log(arr) // [ 1, 2, 3 ]
 ```
 
 <br>
-이때 원본 배열의 각 요소를 얕은 복사(shallow copy)하여 새로운 복사본을 생성한다.  
+이때 원본 배열의 각 요소를 얕은 복사(shallow copy)하여 새로운 복사본을 생성한다.   
 이는 Array#slice 메소드도 마찬가지다.
 
 ```js
@@ -492,6 +495,9 @@ console.log(_todos[0] === todos[0]) // true
 
 <br>
 Spread 문법과 Object.assign는 원본을 shallow copy한다.
+
+얕은 복사의 경우 객체의 내부 객체들은 복사되지 않으므로 사용에 주의해야한다.
+
 Deep copy를 위해서는 lodash의 deepClone을 사용하는 것을 추천한다.
 
 Spread 문법을 사용하면 유사 배열 객체(Array-like Object)를 배열로 손쉽게 변환할 수 있다.
