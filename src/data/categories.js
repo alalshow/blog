@@ -4,11 +4,11 @@ const categories = {
     id: 34567,
   },
   life: {
-    name: "생활",
+    name: "life",
     id: 43567,
   },
   guides: {
-    name: "Guides",
+    name: "book",
     id: 456789,
   },
   javascript: {
