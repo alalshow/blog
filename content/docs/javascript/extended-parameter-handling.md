@@ -399,6 +399,10 @@ console.log(arr1) // [ 1, 2, 3, 4, 5, 6 ]
 
 ES5에서 기존 배열에 다른 배열의 개별 요소를 삽입하려면 아래와 같은 방법을 사용한다.
 
+> 구문: array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+
+start index로 부터 deleteCount 개수 만큼 요소를 제거하고 그 자리에 아이템들을 삽입한다.
+
 ```js
 // ES5
 var arr1 = [1, 2, 3, 6]
