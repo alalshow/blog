@@ -20,7 +20,7 @@ to-heading: 6
 
 #### Spread의 의미
 
-![카드 스프레드](http://m.ko.club-cards.com/Content/upload/2018365360/201808071737317357278.jpg)
+![카드 스프레드](http://gdimg.gmarket.co.kr/641709458/still/600?ver=0)
 
 Spread는 `펼치다`라는 의미를 가지고 있다.  
 카지노에서 포카를 할 때 딜러가 카드를 펼치는 기술을 보았을 것이다.  
@@ -66,6 +66,7 @@ function sum(x, y) {
 console.log(sum(1)) // NaN
 ```
 
+<br>
 따라서 매개변수에 **적절한 인수**가 전달되었는지 함수 내부에서 확인할 필요가 있다.
 
 ```js
@@ -81,7 +82,8 @@ console.log(sum(1)) // 1
 console.log(sum(1, 2)) // 3
 ```
 
-ES6에서는 매개변수 기본 값을 사용하여 함수 내에서 수행하던 인수 체크 및 초기화를 간소화할 수 있다.  
+<br>
+ES6에서는 매개변수 기본 값을 사용하여 함수 내에서 수행하던 인수 체크 및 초기화를 간소화할 수 있다.
 매개변수 기본값은 매개변수에 인수를 전달하지 않았을 경우에만 유효하다.
 
 ```js
@@ -93,6 +95,7 @@ console.log(sum(1)) // 1
 console.log(sum(1, 2)) // 3
 ```
 
+<br>
 매개변수 기본값은 함수 정의 시 선언한 매개변수 개수를 나타내는 함수 객체의 length 프로퍼티와 arguments 객체에 영향을 주지 않는다.
 
 ```js
@@ -122,6 +125,7 @@ function foo(...rest) {
 foo(1, 2, 3, 4, 5)
 ```
 
+<br>
 함수에 전달된 인수들은 순차적으로 파라미터와 Rest 파라미터에 할당된다.
 
 ```js
@@ -141,6 +145,7 @@ function bar(param1, param2, ...rest) {
 bar(1, 2, 3, 4, 5)
 ```
 
+<br>
 Rest 파라미터는 이름 그대로 먼저 선언된 파라미터에 할당된 인수를 제외한 나머지 인수들이 모두 배열에 담겨 할당된다.  
 따라서 Rest 파라미터는 반드시 마지막 파라미터이어야 한다.
 
@@ -151,6 +156,7 @@ foo(1, 2, 3, 4, 5);
 // SyntaxError: Rest parameter must be last formal parameter
 ```
 
+<br>
 Rest 파라미터는 함수 정의 시 선언한 매개변수 개수를 나타내는 함수 객체의 length 프로퍼티에 영향을 주지 않는다.
 
 ```js
@@ -180,6 +186,7 @@ var foo = function() {
 foo(1, 2) // { '0': 1, '1': 2 }
 ```
 
+<br>
 가변 인자 함수는 파라미터를 통해 인수를 전달받는 것이 불가능하므로 arguments 객체를 활용하여 인수를 전달받는다.  
 하지만 arguments 객체는 유사 배열 객체이므로 배열 메소드를 사용하려면 Function.prototype.call을 사용해야 하는 번거로움이 있다.
 
@@ -199,7 +206,9 @@ function sum() {
 console.log(sum(1, 2, 3, 4, 5)) // 15
 ```
 
-ES6에서는 rest 파라미터를 사용하여 가변 인자의 목록을 배열로 전달받을 수 있다. 이를 통해 유사 배열인 arguments 객체를 배열로 변환하는 번거로움을 피할 수 있다.
+<br>
+ES6에서는 rest 파라미터를 사용하여 가변 인자의 목록을 배열로 전달받을 수 있다.  
+이를 통해 유사 배열인 arguments 객체를 배열로 변환하는 번거로움을 피할 수 있다.
 
 ```js
 // ES6
@@ -211,7 +220,9 @@ function sum(...args) {
 console.log(sum(1, 2, 3, 4, 5)) // 15
 ```
 
-하지만 ES6의 화살표 함수에는 함수 객체의 arguments 프로퍼티가 없다. 따라서 화살표 함수로 가변 인자 함수를 구현해야 할 때는 반드시 rest 파라미터를 사용해야 한다.
+<br>
+하지만 ES6의 화살표 함수에는 함수 객체의 arguments 프로퍼티가 없다.  
+따라서 화살표 함수로 가변 인자 함수를 구현해야 할 때는 반드시 rest 파라미터를 사용해야 한다.
 
 ```js
 var normalFunc = function() {}
@@ -223,7 +234,8 @@ console.log(arrowFunc.hasOwnProperty("arguments")) // false
 
 ## 3. Spread 문법
 
-Spread 문법(Spread Syntax, ...)는 대상을 개별 요소로 분리한다. Spread 문법의 대상은 이터러블이어야 한다.
+Spread 문법(Spread Syntax, ...)는 대상을 개별 요소로 분리한다.  
+Spread 문법의 대상은 이터러블이어야 한다.
 
 ```js
 // ...[1, 2, 3]는 [1, 2, 3]을 개별 요소로 분리한다(→ 1, 2, 3)
@@ -266,6 +278,7 @@ foo.apply(null, arr)
 // foo.call(null, 1, 2, 3);
 ```
 
+<br>
 ES6의 Spread 문법(…)을 사용한 배열을 인수로 함수에 전달하면 배열의 요소를 분해하여 순차적으로 파라미터에 할당한다.
 
 ```js
@@ -284,7 +297,9 @@ const arr = [1, 2, 3]
 foo(...arr)
 ```
 
-앞에서 살펴본 Rest 파라미터는 Spread 문법을 사용하여 파라미터를 정의한 것을 의미한다.  
+<br>
+앞에서 살펴본 Rest 파라미터는 Spread 문법을 사용하여 파라미터를 정의한 것을 의미한다.
+
 형태가 동일하여 혼동할 수 있으므로 주의가 필요하다.
 
 ```js
@@ -309,6 +324,7 @@ function bar(x, y, z) {
 bar(...[1, 2, 3])
 ```
 
+<br>
 Rest 파라미터는 반드시 마지막 파라미터이어야 하지만 Spread 문법을 사용한 인수는 자유롭게 사용할 수 있다.
 
 ```js
@@ -340,6 +356,7 @@ var arr = [1, 2, 3]
 console.log(arr.concat([4, 5, 6])) // [ 1, 2, 3, 4, 5, 6 ]
 ```
 
+<br>
 Spread 문법을 사용하면 배열 리터럴 만으로 기존 배열의 요소를 새로운 배열 요소의 일부로 만들 수 있다.
 
 ```js
@@ -364,6 +381,7 @@ Array.prototype.push.apply(arr1, arr2)
 console.log(arr1) // [ 1, 2, 3, 4, 5, 6 ]
 ```
 
+<br>
 Spread 문법을 사용하면 아래와 같이 보다 간편하게 표현할 수 있다.
 
 ```js
@@ -396,6 +414,7 @@ Array.prototype.splice.apply(arr1, [3, 0].concat(arr2))
 console.log(arr1) // [ 1, 2, 3, 4, 5, 6 ]
 ```
 
+<br>
 Spread 문법을 사용하면 아래와 같이 보다 간편하게 표현할 수 있다.
 
 ```js
@@ -428,6 +447,7 @@ console.log(copy) // [ 1, 2, 3, 4 ]
 console.log(arr) // [ 1, 2, 3 ]
 ```
 
+<br>
 Spread 문법을 사용하면 보다 간편하게 배열을 복사할 수 있다.
 
 ```js
@@ -446,7 +466,9 @@ console.log(copy) // [ 1, 2, 3, 4 ]
 console.log(arr) // [ 1, 2, 3 ]
 ```
 
-이때 원본 배열의 각 요소를 얕은 복사(shallow copy)하여 새로운 복사본을 생성한다. 이는 Array#slice 메소드도 마찬가지다.
+<br>
+이때 원본 배열의 각 요소를 얕은 복사(shallow copy)하여 새로운 복사본을 생성한다.  
+이는 Array#slice 메소드도 마찬가지다.
 
 ```js
 const todos = [
@@ -464,6 +486,7 @@ console.log(_todos === todos) // false
 console.log(_todos[0] === todos[0]) // true
 ```
 
+<br>
 Spread 문법과 Object.assign는 원본을 shallow copy한다.
 Deep copy를 위해서는 lodash의 deepClone을 사용하는 것을 추천한다.
 
@@ -502,9 +525,11 @@ const { x, y, ...z } = n
 console.log(x, y, z) // 1 2 { a: 3, b: 4 }
 ```
 
-Spread 문법의 대상은 이터러블이어야 한다. Rest/Spread 프로퍼티는 일반 객체에 Spread 문법의 사용을 허용한다.
-
-Rest/Spread 프로퍼티를 사용하면 객체를 손쉽게 병합 또는 변경할 수 있다. 이는 Object.assign을 대체할 수 있는 간편한 문법이다.
+<br>
+Spread 문법의 대상은 이터러블이어야 한다.  
+Rest/Spread 프로퍼티는 일반 객체에 Spread 문법의 사용을 허용한다.  
+Rest/Spread 프로퍼티를 사용하면 객체를 손쉽게 병합 또는 변경할 수 있다.  
+이는 Object.assign을 대체할 수 있는 간편한 문법이다.
 
 ```js
 // 객체의 병합
