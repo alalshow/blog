@@ -57,13 +57,9 @@ Reduce는 배열이 돌면서 정의한 callback함수(보통 **reducer**라고 
 
 - callback
 
-  - 배열의 각 요소에 대해 실행할 함수. 다음 네 가지 인수를 받습니다.
-    - accumulator
-      - 누산기accmulator는 콜백의 반환값을 누적합니다.
-      - 콜백의 이전 반환값 또는, 콜백의 첫 번째 호출이면서 initialValue를 제공한 경우에는 initialValue의 값입니다.
-    - currentValue - 처리할 현재 요소.
-    - currentIndex(Optional) - 처리할 현재 요소의 인덱스. initialValue를 제공한 경우 0, 아니면 1부터 시작합니다.
-    - array(Optional) - reduce()를 호출한 배열.
+  - accumulator - 누산기accmulator는 콜백의 반환값을 누적합니다.
+  - currentIndex(Optional) - 처리할 현재 요소의 인덱스. initialValue를 제공한 경우 0, 아니면 1부터 시작합니다.
+  - array(Optional) - reduce()를 호출한 배열.
 
 - initialValue (Optional)
 
@@ -89,13 +85,14 @@ initialValue를 제공하지 않았다면, accumulator는 배열의 첫 번째 �
 
 ### 참고
 
-initialValue를 제공하지 않으면, reduce()는 인덱스 1부터 시작해 콜백 함수를 실행하고 첫 번째 인덱스는 건너 뜁니다. initialValue를 제공하면 인덱스 0에서 시작합니다.
+initialValue를 제공하지 않으면, reduce()는 인덱스 1부터 시작해 콜백 함수를 실행하고 첫 번째 인덱스는 건너 뜁니다.  
+initialValue를 제공하면 인덱스 0에서 시작합니다.
 배열이 비어있는데 initialValue도 제공하지 않으면 TypeError가 발생합니다.  
 배열의 요소가 (위치와 관계없이) 하나 뿐이면서 initialValue를 제공되지 않은 경우, 또는 initialValue는 주어졌으나 배열이 빈 경우엔 그 단독 값을 callback 호출 없이 반환합니다.
 
 ## reduce 예제
 
-### 배열의 모든 값 합산
+### 1. 배열의 모든 값 합산
 
 ```js
 var sum = [0, 1, 2, 3].reduce(function(accumulator, currentValue) {
@@ -104,6 +101,7 @@ var sum = [0, 1, 2, 3].reduce(function(accumulator, currentValue) {
 // sum is 6
 ```
 
+<br>
 화살표 함수로도 작성할 수 있습니다.
 
 ```js
@@ -113,6 +111,7 @@ var total = [0, 1, 2, 3].reduce(
 )
 ```
 
+<br>
 객체 배열에서의 값 합산
 객체로 이루어진 배열에 들어 있는 값을 합산하기 위해서는 반드시 초기값을 주어 각 항목이 여러분의 함수를 거치도록 해야 합니다.
 
@@ -129,6 +128,7 @@ initialValue)
 console.log(sum) // logs 6
 ```
 
+<br>
 화살표 함수(arrow function)로도 작성할 수 있습니다:
 
 ```js
@@ -141,7 +141,7 @@ var sum = [{ x: 1 }, { x: 2 }, { x: 3 }].reduce(
 console.log(sum) // logs 6
 ```
 
-### 중첩 배열 펼치기flatten
+### 2. 중첩 배열 펼치기flatten
 
 ```js
 var flattened = [
@@ -154,6 +154,7 @@ var flattened = [
 // 펼친 결과: [0, 1, 2, 3, 4, 5]
 ```
 
+<br>
 화살표 함수로도 작성할 수 있습니다:
 
 ```js
@@ -164,7 +165,7 @@ var flattened = [
 ].reduce((accumulator, currentValue) => accumulator.concat(currentValue), [])
 ```
 
-### 객체 내의 값 인스턴스 개수 세기
+### 3. 객체 내의 값 인스턴스 개수 세기
 
 ```js
 var names = ["Alice", "Bob", "Tiff", "Bruce", "Alice"]
@@ -181,7 +182,7 @@ var countedNames = names.reduce(function(allNames, name) {
 // { 'Alice': 2, 'Bob': 1, 'Tiff': 1, 'Bruce': 1 }
 ```
 
-### 속성으로 객체 분류하기
+### 4. 속성으로 객체 분류하기
 
 ```js
 var people = [
@@ -212,7 +213,7 @@ var groupedPeople = groupBy(people, "age")
 // }
 ```
 
-### 확장 연산자와 초기값을 이용하여 객체로 이루어진 배열에 담긴 배열 연결하기
+### 5. 확장 연산자와 초기값을 이용하여 객체로 이루어진 배열에 담긴 배열 연결하기
 
 ```js
 // friends - an array of objects
@@ -251,9 +252,9 @@ var allbooks = friends.reduce(
 // ]
 ```
 
-### 배열의 중복 항목 제거
+### 6. 배열의 중복 항목 제거
 
-참고: Set과 Array.from()을 사용할 수 있는 환경이라면, let orderedArray = Array.from(new Set(myArray));를 사용해 중복 요소를 제거할 수도 있습니다.
+> 참고: Set과 Array.from()을 사용할 수 있는 환경이라면, let orderedArray = Array.from(new Set(myArray));를 사용해 중복 요소를 제거할 수도 있습니다.
 
 ```js
 let arr = [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4]
@@ -267,10 +268,10 @@ let result = arr.sort().reduce((accumulator, current) => {
 console.log(result) //[1,2,3,4,5]
 ```
 
-### 프로미스를 순차적으로 실행하기
+### 7. 프로미스를 순차적으로 실행하기
 
 ```js
-/\*\*
+/*\*
 
 - Runs promises from array of functions that can return promises
 - in chained manner
@@ -278,78 +279,70 @@ console.log(result) //[1,2,3,4,5]
 - @param {array} arr - promise arr
 - @return {Object} promise object
   \*/
-  function runPromiseInSequence(arr, input) {
-  return arr.reduce(
-  (promiseChain, currentFunction) => promiseChain.then(currentFunction),
-  Promise.resolve(input)
-  );
-  }
-
+function runPromiseInSequence(arr, input) {
+    return arr.reduce((promiseChain, currentFunction) => promiseChain.then(currentFunction), Promise.resolve(input));
+}
 // promise function 1
 function p1(a) {
-return new Promise((resolve, reject) => {
-resolve(a \* 5);
-});
+    return new Promise((resolve, reject) => {
+        resolve(a \ * 5);
+    });
 }
-
 // promise function 2
 function p2(a) {
-return new Promise((resolve, reject) => {
-resolve(a \* 2);
-});
+    return new Promise((resolve, reject) => {
+        resolve(a \ * 2);
+    });
 }
-
 // function 3 - will be wrapped in a resolved promise by .then()
 function f3(a) {
-return a \* 3;
+    return a \ * 3;
 }
-
 // promise function 4
 function p4(a) {
-return new Promise((resolve, reject) => {
-resolve(a \* 4);
-});
+    return new Promise((resolve, reject) => {
+        resolve(a \ * 4);
+    });
 }
-
 const promiseArr = [p1, p2, f3, p4];
-runPromiseInSequence(promiseArr, 10)
-.then(console.log); // 1200
-함수 구성을 위한 파이프 함수
+runPromiseInSequence(promiseArr, 10).then(console.log); // 1200
+```
+
+### 8. 함수 구성을 위한 파이프 함수
+
+```js
 // Building-blocks to use for composition
 const double = x => x + x;
 const triple = x => 3 _ x;
 const quadruple = x => 4 _ x;
-
 // Function composition enabling pipe functionality
-const pipe = (...functions) => input => functions.reduce(
-(acc, fn) => fn(acc),
-input
-);
-
+const pipe = (...functions) => input => functions.reduce((acc, fn) => fn(acc), input);
 // Composed functions for multiplication of specific values
 const multiply6 = pipe(double, triple);
 const multiply9 = pipe(triple, triple);
 const multiply16 = pipe(quadruple, quadruple);
 const multiply24 = pipe(double, triple, quadruple);
-
 // Usage
 multiply6(6); // 36
 multiply9(9); // 81
 multiply16(16); // 256
 multiply24(10); // 240
-reduce()로 map() 작성
-if (!Array.prototype.mapUsingReduce) {
-Array.prototype.mapUsingReduce = function(callback, thisArg) {
-return this.reduce(function(mappedArray, currentValue, index, array) {
-mappedArray[index] = callback.call(thisArg, currentValue, index, array);
-return mappedArray;
-}, []);
-};
-}
+```
 
-[1, 2, , 3].mapUsingReduce(
-(currentValue, index, array) => currentValue + index + array.length
-); // [5, 7, , 10]
+### 9. reduce()로 map()작성
+
+```js
+if (!Array.prototype.mapUsingReduce) {
+  Array.prototype.mapUsingReduce = function(callback, thisArg) {
+    return this.reduce(function(mappedArray, currentValue, index, array) {
+      mappedArray[index] = callback.call(thisArg, currentValue, index, array)
+      return mappedArray
+    }, [])
+  }
+}
+;[1, 2, , 3].mapUsingReduce(
+  (currentValue, index, array) => currentValue + index + array.length
+) // [5, 7, , 10]
 ```
 
 # 출처
