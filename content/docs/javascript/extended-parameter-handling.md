@@ -20,7 +20,7 @@ to-heading: 6
 
 #### Spread의 의미
 
-![카드 스프레드](http://gdimg.gmarket.co.kr/641709458/still/600?ver=0)
+![card-spread](https://user-images.githubusercontent.com/17464007/72396750-0c9ac580-3781-11ea-8710-733875c6fa47.png)
 
 Spread는 `펼치다`라는 의미를 가지고 있다.  
 카지노에서 포카를 할 때 딜러가 카드를 펼치는 기술을 보았을 것이다.  
