@@ -17,6 +17,10 @@ to-heading: 6
 
 ## 함수 호이스팅이란
 
+![image](https://user-images.githubusercontent.com/17464007/72661771-cf089780-3a21-11ea-893c-54399ceac912.png)
+
+호이스터라는 기계는 밑에서 위로 어떤 물건들을 끌어 올리는 역할을 한다.
+
 호이스팅이란 var 선언문이나 function 선언문 등 모든 선언문이 해당 Scope의 선두로 옮겨진 것처럼 동작하는 특성을 말한다.
 
 즉, 자바스크립트는 모든 선언문(var, let, const, function, function\*, class)이 선언되기 이전에 참조 가능하다.

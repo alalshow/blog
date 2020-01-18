@@ -98,8 +98,20 @@ class Parent {
     this._name = name
   }
 
+  get name() {
+    return this._name
+  }
+
+  set name(name) {
+    this._name = name
+  }
+
+  static staticMethod() {
+    console.log("staticMethod")
+  }
+
   sayHi() {
-    console.log(`안녕! ${this._name} 난 너의 엄마`)
+    console.log(`안녕! 난 ${this._name}`)
   }
 }
 
@@ -113,15 +125,29 @@ class Child extends Parent {
   //부모의 sayHi를 재정의 (메서드 오버라이딩)
   sayHi() {
     super.sayHi()
-    console.log(`Hi! ${this._name}`)
+    console.log(`Hi! 난 ${this._name}`)
   }
 }
 
 // 인스턴스 생성
-const me = new Child("Lee")
-me.sayHi() // 안녕! Lee 난 너의 엄마 \n Hi! Lee
+const parent = new Parent("부모")
+const child = new Child("자식")
 
-console.log(me instanceof Child) // true
+parent.sayHi() // 안녕! 난 부모
+child.sayHi() // 안녕! 난 자식 \n Hi! 난 자식
+
+console.log(parent.name) //부모  getter 사용
+parent.name = "부모가 아닌데?" // 부모 setter 사용
+parent.sayHi() // 안녕! 난 부모가 아닌데?
+
+console.log(child.name) //자식 getter 사용
+child.name = "부모의 능력을 상속 받았을 까요?" //자식 setter 사용
+child.sayHi() // 안녕! 난 부모의 능력을 상속 받았을 까요? \n Hi! 난 부모의 능력을 상속 받았을 까요?
+
+console.log(child instanceof Parent) // true
+
+Parent.staticMethod() //staticMethod
+Child.staticMethod() //staticMethod
 ```
 
 - `sayHi`는 뭔가 function 처럼 생겼는데 function이라는 용어가 없다. 생략되었는지 알고 function을 넣어봤는데 안나온다. 주의하자
@@ -142,6 +168,25 @@ console.log(me instanceof Child) // true
   부모가 가지고 있는 데이터를 가져다 쓸 수 있기 때문에 꼭 호출해야 하지 않을까? 생각한다. this에 대한 자세한 내용은 추후에 살펴보도록 하겠다.
 
   > Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+
+### 1.1.3 getter
+
+- getter를 사용할 때는 `()`를 붙이지 않는다. (..희안하다)
+- getter를 쓰는 방법은 `parent.name` 또는 `child.name` 와 같이 `객체명.get의이름`으로 사용한다.
+- getter에는 파라미터가 없다.
+- 상속된다. 부모에서 getter 정의하면 자식도 사용 가능하다.
+
+### 1.1.4 setter
+
+- setter를 사용할 때도 `()`를 붙이지 않는다. (ㅜㅜ적응안됨)
+- setter를 쓰는 방법은 `parent.name = '새로운이름'` 과 같이 사용한다.
+- 상속된다. 부모에서 setter 정의하면 자식도 사용 가능하다.
+
+### 1.1.5 static
+
+- static을 사용할 때는 `Parent.staticMethod`와 같이 `class명.정적메서드명` 으로 사용한다.
+- static은 정적 메서드를 정의할 수 있다.
+- 상속된다. 부모에서 static정의하면 자식도 사용 가능하다.
 
 ## 1.2 class는 호이스팅 안되나요?
 
