@@ -1,5 +1,5 @@
 ---
-title: Function Hoisting
+title: Hoisting
 date: "2020-01-07T11:11:02.409Z"
 description: "Javascript Function Hoisting"
 ---
@@ -21,9 +21,9 @@ to-heading: 6
 
 호이스터라는 기계는 밑에서 위로 어떤 물건들을 끌어 올리는 역할을 한다.
 
-호이스팅이란 var 선언문이나 function 선언문 등 모든 선언문이 해당 Scope의 선두로 옮겨진 것처럼 동작하는 특성을 말한다.
+JS에서 호이스팅이란 var 선언문이나 function 선언문 등 모든 선언문이 해당 Scope의 선두로 끌어 올리고 동작하는 특성을 말한다.
 
-즉, 자바스크립트는 모든 선언문(var, let, const, function, function\*, class)이 선언되기 이전에 참조 가능하다.
+자바스크립트는 모든 선언문(var, let, const, function, function\*, class)이 선언되기 이전에 참조 가능하다.
 
 아래의 코드를 보자.
 
