@@ -222,3 +222,7 @@ class Foo {}
 
 근데 왜 에러가 날까? 그 이유는 class 키워드는 let이나 const처럼 선언 이전에 호출하면 [시적 사각지대(Temporal Dead Zone; TDZ)](https://medium.com/korbit-engineering/let%EA%B3%BC-const%EB%8A%94-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85-%EB%90%A0%EA%B9%8C-72fcf2fac365)에
 빠지기 떄문에 에러가 난다.
+
+# 출처
+
+- [poiemaweb-es6-class](https://poiemaweb.com/es6-class)
