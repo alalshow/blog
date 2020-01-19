@@ -13,11 +13,13 @@ from-heading: 1
 to-heading: 6
 ```
 
-# Immutability
+# Immutability 불변성
 
-'Immutability'란 말이 또 어렵다. ㅜㅜ 그런데 알고 보면 쉬운 말이다.
-보통 'mutable'이란 단어는 변할 수 있다는 의미를 가지고 있다.
-돌연변이를 영어로는 'mutation' 이라고 부른다.
+![image](https://user-images.githubusercontent.com/17464007/72683611-44589300-3b1c-11ea-9bdf-634a25fa57ad.png)
+영화 엑스맨에는 돌연변이들이 나온다. 이 돌연변이를 영어로는 `mutation`이라고 부른다.  
+`mutation`은 변화라는 의미를 가지고있다.  
+'mutable'은 변할 수 있다는 의미를 가지고 있다.
+
 mutablility에 부정을 뜻하는 접미사'im' 가 붙었으니 변할 수 없다는 뜻이 된다.
 따라서 'immutable object'은 변할 수 없는 객체를 뜻한다.
 
