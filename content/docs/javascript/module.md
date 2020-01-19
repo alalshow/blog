@@ -208,3 +208,7 @@ console.log(square(10)) // 100
 ```
 
 위 HTML을 실핼해보면 콘솔에 100이 출력되는 것을 확인할 수 있다.
+
+## 출처
+
+- [poiemaweb- 자바스크립트 모듈](https://poiemaweb.com/es6-module)
