@@ -16,6 +16,7 @@ to-heading: 6
 # Immutability 불변성
 
 ![image](https://user-images.githubusercontent.com/17464007/72683611-44589300-3b1c-11ea-9bdf-634a25fa57ad.png)
+
 영화 엑스맨에는 돌연변이들이 나온다. 이 돌연변이를 영어로는 `mutation`이라고 부른다.  
 `mutation`은 변화라는 의미를 가지고있다.  
 'mutable'은 변할 수 있다는 의미를 가지고 있다.

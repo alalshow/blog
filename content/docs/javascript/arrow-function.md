@@ -16,6 +16,8 @@ to-heading: 6
 
 ## 1. 화살표 함수의 선언
 
+![image](https://user-images.githubusercontent.com/17464007/72683799-de6d0b00-3b1d-11ea-9b44-e3720cc2e822.png)
+
 화살표 함수(Arrow function)는 function 키워드 대신 화살표(=>)를 사용하여 보다 간략한 방법으로 함수를 선언할 수 있다.
 
 하지만 모든 경우 화살표 함수를 사용할 수 있는 것은 아니다. 화살표 함수의 기본 문법은 아래와 같다.

@@ -16,6 +16,8 @@ to-heading: 6
 
 ## intro
 
+![image](https://user-images.githubusercontent.com/17464007/72683789-c1383c80-3b1d-11ea-966d-819a540fed62.png)
+
 도무지 갈피를 잡을 수 없는 Reduce라는 이름..  
 분명 예제를 보고 따라한 적도 많은데  
 왜 이리 익숙하지가 않을까? ㅜㅜ
