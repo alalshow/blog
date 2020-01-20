@@ -50,7 +50,9 @@ ES5 까지는 prototype을 사용하여 상속을 구현하였다.
 
 ### prototype 이란
 
-자바스크립트는 prototype기반의 언어라고 부른다.
+![image](https://user-images.githubusercontent.com/17464007/72707701-6138a900-3ba4-11ea-861b-9bee4c1a52a2.png)
+
+자바스크립트는 prototype기반의 언어이다.
 prototype이란 쉽게 말해 모든 객체가 가지고 있는 원형의 정보를 담아둔 붕어빵 틀로 보면 된다.
 객체를 만들 때 대상이 되는 객체의 prototype을 가리키게 하면 이것을 우아한 말로 프로토타입 체인이라고 부르고
 이 특징을 가지고 상속을 구현할 수 있다.
@@ -83,7 +85,9 @@ child.sayHi() // Hi! child
 console.log(child instanceof Parent) // true
 ```
 
-위의 코드를 보면 새로 만들어진 child객체가 `sayHi` 메서드를 호출했는데 호출이 되었다.
+![image](https://user-images.githubusercontent.com/17464007/72708831-dc9b5a00-3ba6-11ea-9c8b-293df62b6c63.png)
+
+위의 코드를 보면 새로 만들어진 child객체가 `sayHi` 메서드를 호출하였다.
 이와 같이 부모의 대상이되는 객체의 protoype을 가리키게 하면 부모의 prototype이 가지고 있는 자원을 사용할 수 있다.
 이것은 코드의 재사용성 측면에서 매우 중요한 개념이다.
 왜냐하면 공통적인 코드를 하나의 객체의 prototype에 정의해두면 이것을 사용해 코드의 중복을 방지할 수 있기 떄문이다.
