@@ -18,6 +18,8 @@ to-heading: 6
 
 ### 자바에서 Class의 개념
 
+![image](https://user-images.githubusercontent.com/17464007/72707071-ecb13a80-3ba2-11ea-81e3-ef2f98259e7b.png)
+
 ES6에서 Class 키워드가 새롭게 추가되었다. 자바를 공부할 때 Class를 공부해서 자바스크립트 Class의 개념을 이해하는 것은
 어렵지는 않았다. 나는 Class를 붕어빵 만들 때 쓰는 붕어빵틀로 이해를 했다.  
 붕어빵을 만들 때 붕어빵 틀에 붕어빵을 어떻게 만들 것인지 먼저 그려놓고 그것에 맞춰서 붕어빵을 생성하듯  
