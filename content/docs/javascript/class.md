@@ -222,9 +222,21 @@ class Foo {}
 
 아니 되는데..
 
-근데 왜 에러가 날까? 그 이유는 class 키워드는 let이나 const처럼 선언 이전에 호출하면 [시적 사각지대(Temporal Dead Zone; TDZ)](https://medium.com/korbit-engineering/let%EA%B3%BC-const%EB%8A%94-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85-%EB%90%A0%EA%B9%8C-72fcf2fac365)에
-빠지기 떄문에 에러가 난다.
+근데 왜 에러가 날까? 
+그 이유는 class 키워드는 let이나 const처럼 선언 이전에 호출하면 [시적 사각지대(Temporal Dead Zone; TDZ)](https://medium.com/korbit-engineering/let%EA%B3%BC-const%EB%8A%94-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85-%EB%90%A0%EA%B9%8C-72fcf2fac365)에
+빠지기 떄문에 에러가 난다.  
+
+## 1.2.1 Temporal Dead Zone(TDZ)이란
+- 초기화되지 않은 변수가 있는 곳을 Temporal Dead Zone이라고 합니다.
+
+### 1.2.2 자세한 설명
+let, const, class에서는 초기화하기 전에 해당변수나 객체를 호출하게 되면 ReferenceError가 발생합니다.  
+이는 let/const는 Temporal Dead Zone에 영향을 받기 때문에 var와 다르게 작동하는 것을 볼 수 있습니다.  
+변수가 undefined로 시작되는 var와는 다르게 let 변수는 선언이 실행되기 전까지 초기화가 되지 않습니다.   
+따라서 변수가 초기화 되기 전에 접근하는 것은 ReferenceError를 뱉어내고 있는 것입니다.  
+
 
 # 출처
 
 - [poiemaweb-es6-class](https://poiemaweb.com/es6-class)
+- [[ES6] Hoisting & Temporal Dead Zone(TDZ)](https://velog.io/@wrfg12/ES6-Hoisting-Temporal-Dead-ZoneTDZ)
