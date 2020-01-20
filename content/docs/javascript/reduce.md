@@ -16,6 +16,8 @@ to-heading: 6
 
 ## intro
 
+![image](https://user-images.githubusercontent.com/17464007/72707254-5b8e9380-3ba3-11ea-8b4f-de2ca4adcdbc.png)
+
 ![image](https://user-images.githubusercontent.com/17464007/72683789-c1383c80-3b1d-11ea-966d-819a540fed62.png)
 
 도무지 갈피를 잡을 수 없는 Reduce라는 이름..  
